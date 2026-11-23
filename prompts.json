@@ -1,0 +1,456 @@
+{
+  "version": "1.0.0",
+  "description": "A curated collection of ready-to-use AI prompts, grouped by category. Each prompt has a clear purpose, copy-paste text, a short tip, and an example of what to expect.",
+  "prompts": [
+    {
+      "id": "debug-error",
+      "title": "Debug an Error Message",
+      "category": "coding",
+      "purpose": "Get a clear explanation of an error and a fix you can actually try.",
+      "prompt": "I ran into this error and I can't figure out what's wrong:\n\n[Paste the full error message]\n\nHere's the code around it:\n\n[Paste the relevant code]\n\nExplain in plain language: 1) what the error actually means, 2) the most likely cause, 3) the smallest fix to try first, and 4) how to check whether it worked. If there are two possible causes, tell me how to tell them apart.",
+      "tips": "Paste the full error, not just the last line — the lines above it usually say where it really started.",
+      "example": "The error means Python can't find the module 'requests' — it's not installed in this environment. Most likely cause: you installed it for a different Python version. Fix: run pip install requests in the same terminal, then re-run the script."
+    },
+    {
+      "id": "code-review",
+      "title": "Review My Code Like a Senior Teammate",
+      "category": "coding",
+      "purpose": "Get an honest, specific code review that finds real problems, not vague praise.",
+      "prompt": "Review this code as if you're a senior developer on my team. Be honest and specific:\n\n[Paste your code]\n\nCheck for: 1) bugs or edge cases that will break, 2) parts that are hard to read and how to simplify them, 3) security or performance problems, 4) anything that doesn't follow normal conventions for this language. For each issue, show the line, explain why it matters, and suggest the fix. End with the 3 most important changes, in order.",
+      "tips": "Say what the code is supposed to do first — a review is much better when the goal is clear.",
+      "example": "1) Line 14: user input is used directly in the SQL query — this allows SQL injection. Use a parameterized query instead. 2) The loop runs a database query on every iteration — fetch the data once before the loop..."
+    },
+    {
+      "id": "refactor-clean",
+      "title": "Refactor for Readability",
+      "category": "coding",
+      "purpose": "Make working code easier to read and change later, without breaking what it does.",
+      "prompt": "Refactor this code so it's easier to read and change later, without changing what it does:\n\n[Paste your code]\n\nRules: keep the same behavior and the same function names. Break long functions into smaller ones with clear names, remove duplicated logic, and replace magic numbers with named constants. Show the full refactored code, then list what you changed and why — in one line per change.",
+      "tips": "If the code works but is messy, say so — refactoring working code is safer than rewriting it.",
+      "example": "Extracted the discount calculation into calculate_discount() so the checkout function drops from 60 lines to 25. Replaced the magic number 0.1 with DISCOUNT_RATE = 0.1 at the top of the file."
+    },
+    {
+      "id": "write-tests",
+      "title": "Write Tests for This Function",
+      "category": "coding",
+      "purpose": "Generate tests that cover the normal case, the edge cases, and bad input.",
+      "prompt": "Write tests for this function:\n\n[Paste the function]\n\nCover: the normal case, at least two edge cases (empty input, zero, the biggest realistic value), and one case where the input is invalid. Use [pytest / Jest / your framework]. For each test, add a one-line comment saying what it's checking. If something can't be tested easily, say so and explain why.",
+      "tips": "Name the testing framework you use — test code looks very different between pytest and Jest.",
+      "example": "test_add_empty_list: checks that add([]) returns 0 instead of crashing. test_add_negative: checks that add([-1, -2]) returns -3."
+    },
+    {
+      "id": "explain-code",
+      "title": "Explain This Code in Plain Words",
+      "category": "coding",
+      "purpose": "Understand code you didn't write (or wrote long ago) line by line.",
+      "prompt": "Explain this code to me line by line, in plain words, as if I'm learning the language:\n\n[Paste the code]\n\nFor each part, say what it does and why it's there. Skip the obvious lines. At the end, summarize in 2-3 sentences what the whole thing does and what I should remember about it.",
+      "tips": "Mention the language and your level — the explanation changes a lot between beginner and intermediate.",
+      "example": "Line 3 loops over every user in the list. Line 4 checks if the user is active. Overall, this function filters out inactive users before sending the email."
+    },
+    {
+      "id": "rewrite-clear",
+      "title": "Rewrite This So It's Easy to Read",
+      "category": "writing",
+      "purpose": "Turn dense or confusing text into something people actually enjoy reading.",
+      "prompt": "Rewrite this text so it's clear and easy to read. Keep the same meaning and the same facts — don't add anything new:\n\n[Paste your text]\n\nUse short sentences, everyday words, and one idea per paragraph. If a sentence is confusing, split it. Then list the 3 biggest changes you made.",
+      "tips": "Say who will read it — a rewrite for a customer sounds different from one for a coworker.",
+      "example": "Before: 'The implementation of the aforementioned methodology facilitates...' After: 'This method helps you get the work done faster.'"
+    },
+    {
+      "id": "blog-outline",
+      "title": "Outline a Blog Post That People Finish",
+      "category": "writing",
+      "purpose": "Build a blog outline with a hook, clear sections, and a real ending.",
+      "prompt": "Create an outline for a blog post about [topic]. The reader is [who they are] and they want [what they want to achieve].\n\nGive me: a working title, a hook for the first paragraph, 4-6 main sections with one sentence each on what they cover, and a closing that tells the reader what to do next. Keep it practical — no filler sections.",
+      "tips": "A good outline names the reader's problem in the first line — that's what keeps them reading.",
+      "example": "Title: 'How I Cut My Grocery Bill by 30% Without Eating Worse' — Hook: a one-line story about the receipt that shocked me. Sections: 1) where the money actually goes..."
+    },
+    {
+      "id": "email-professional",
+      "title": "Write a Professional Email",
+      "category": "writing",
+      "purpose": "Write a short, polite email that gets to the point and gets a reply.",
+      "prompt": "Write a professional email about [topic]. Context: [what happened, who it's to, what you need from them].\n\nKeep it under 150 words. Start with the point, not the background. Tone: polite but direct. End with one clear question or next step. Give me a subject line too.",
+      "tips": "Put the ask in the first two sentences — busy people decide whether to keep reading that fast.",
+      "example": "Subject: Request to move Friday's deadline to Monday. Hi Sarah, the design needs one more day for the new photos. Could we move the deadline to Monday morning?"
+    },
+    {
+      "id": "story-idea",
+      "title": "Turn an Idea Into a Story",
+      "category": "writing",
+      "purpose": "Grow a small idea into a story with a character, a problem, and an ending.",
+      "prompt": "Help me turn this idea into a short story:\n\nIdea: [your idea in 1-2 sentences]\n\nGive me: a main character with one clear want, the obstacle in their way, a turning point, and an ending that feels earned. Then write the opening paragraph (3-5 sentences) in a [tone: funny / tense / warm] voice. Keep the idea mine — don't replace it with a different one.",
+      "tips": "One want, one obstacle — stories fall apart when the character wants five things at once.",
+      "example": "Mara wants her late grandmother's food stall back. Obstacle: the landlord already sold the spot to a chain. Turning point: she finds her grandmother's old recipe book..."
+    },
+    {
+      "id": "summarize-long",
+      "title": "Summarize a Long Text",
+      "category": "writing",
+      "purpose": "Boil a long article or document down to what actually matters.",
+      "prompt": "Summarize this text for me:\n\n[Paste the text]\n\nGive me: 1) a 3-sentence summary, 2) the 5 most important points as bullets, 3) anything the author claims without evidence. Keep the author's meaning — don't add your own opinion.",
+      "tips": "If the text is very long, paste it in parts and ask for a summary of each part first.",
+      "example": "Summary: The article argues remote work raises output but weakens mentoring for juniors. Key points: ... Unsupported claim: 'productivity rose 40%' (no source given)."
+    },
+    {
+      "id": "explain-simple",
+      "title": "Explain It Simply, With an Example",
+      "category": "learning",
+      "purpose": "Understand a new topic fast, starting from something you can picture.",
+      "prompt": "Explain [topic] to me as if I've never heard of it. Start with a real-life example I can picture, then explain how it works in 3-4 short steps, then tell me one common misunderstanding people have about it. Use simple words. No jargon unless you explain it right away.",
+      "tips": "Ask for an example from something you already know — 'like cooking' or 'like football' makes it stick.",
+      "example": "Think of an API like a waiter in a restaurant: you ask for something, the waiter carries the order to the kitchen, and brings back the food. You never go into the kitchen yourself."
+    },
+    {
+      "id": "study-plan",
+      "title": "Build a Study Plan That Fits My Week",
+      "category": "learning",
+      "purpose": "Turn a deadline and a few free hours into a realistic week-by-week plan.",
+      "prompt": "Make me a study plan for [subject]. I have [X hours per week], my exam/deadline is on [date], and right now I'm at [beginner / know the basics / almost ready].\n\nBreak it into weeks, with 2-3 specific tasks per week. Mix learning, practice, and review — don't put all the practice at the end. Include one rest day per week. Keep it realistic: if the plan needs more hours than I have, say so and cut something.",
+      "tips": "Be honest about your real free hours — a plan built on 10 hours you don't have will fail in week one.",
+      "example": "Week 1: Chapters 1-2 + 20 flashcards. Week 2: Chapters 3-4 + practice problems. Week 3: first full practice test, review every wrong answer."
+    },
+    {
+      "id": "quiz-me",
+      "title": "Quiz Me Until I Actually Know It",
+      "category": "learning",
+      "purpose": "Test yourself with questions that get harder as you get them right.",
+      "prompt": "Quiz me on [topic]. Ask one question at a time and wait for my answer before asking the next one. Start easy, then get harder. When I get one wrong, explain the right answer briefly and ask a similar question later. After 10 questions, tell me my score and the 2 topics I should review most.",
+      "tips": "This works best as a back-and-forth chat — don't ask for all 10 questions at once.",
+      "example": "Q1: What does DNA stand for? ... That's right. Q2 (harder): Which base pairs with adenine? ... Not quite — it's thymine. Here's why..."
+    },
+    {
+      "id": "compare-concepts",
+      "title": "Compare Two Things Side by Side",
+      "category": "learning",
+      "purpose": "Decide between two options with a clear table and a straight recommendation.",
+      "prompt": "Compare [thing A] and [thing B] for me. I'm trying to decide [what you'll use them for].\n\nUse a table with: what each one is best at, what each one is bad at, cost/effort, and when to pick one over the other. Then give me a straight recommendation for my situation and one sentence why.",
+      "tips": "Say what you'll actually use them for — 'better' means nothing without a use case.",
+      "example": "Recommendation: for a small shop with fixed product fields, SQL — your data has a clear structure and you need reliable reports."
+    },
+    {
+      "id": "feynman-technique",
+      "title": "Teach It Back to Me (Feynman Method)",
+      "category": "learning",
+      "purpose": "Learn deeply by explaining the topic back in your own words.",
+      "prompt": "I want to learn [topic] properly. First, explain it to me in simple terms. Then ask me to explain it back to you in my own words. Point out exactly where my explanation is vague or wrong, and explain that part again more simply. Repeat until I can explain the whole thing without notes.",
+      "tips": "The explaining-back part is the whole point — if you skip it, you're just reading, not learning.",
+      "example": "You said 'the heart pumps blood' — good start. But where does the blood go first, and why does that matter? Try again with that part."
+    },
+    {
+      "id": "pros-cons",
+      "title": "Pros and Cons for a Real Decision",
+      "category": "analysis",
+      "purpose": "Weigh a real decision with honest pros and cons, ranked by how much they matter.",
+      "prompt": "Help me decide: [your decision, e.g. 'should I take the job in Jakarta?']. Context: [your situation in 3-4 sentences].\n\nList the real pros and cons — not generic ones. For each point, say how much it matters (big / medium / small) and why. Then tell me: what would have to be true for the 'yes' option to be the right call, and what question should I answer before deciding?",
+      "tips": "Include the costs nobody mentions — time, energy, what you'd give up — not just money.",
+      "example": "Pro (big): 40% higher salary. Con (big): 3 hours commuting a day — that's 15 hours a week you don't get back."
+    },
+    {
+      "id": "swot",
+      "title": "A SWOT Analysis Without the Fluff",
+      "category": "analysis",
+      "purpose": "A focused SWOT that only includes points that would actually change a decision.",
+      "prompt": "Do a SWOT analysis for [business / project / idea]. Here's the situation:\n\n[2-4 sentences of context]\n\nGive me 3-4 honest points per box: strengths, weaknesses, opportunities, threats. Skip the obvious filler — only include points that would actually change a decision. End with the single biggest risk and the single best move.",
+      "tips": "A weakness isn't 'we're new' — it's something specific a competitor could use against you.",
+      "example": "Strength: you already have 200 paying customers. Threat: your main supplier just raised prices 20%."
+    },
+    {
+      "id": "fact-check-claim",
+      "title": "Check If This Claim Holds Up",
+      "category": "analysis",
+      "purpose": "Verify a claim and see what context is missing before you believe or share it.",
+      "prompt": "Check this claim for me:\n\n'[Paste the claim]'\n\nTell me: 1) is it true, partly true, or false — and what's the actual evidence, 2) where the claim probably came from, 3) what important context is missing. If you can't verify it, say so clearly instead of guessing. Use plain language, and name your sources.",
+      "tips": "Paste the exact wording — a claim that says 'most people' is very different from one that says 'everyone'.",
+      "example": "Partly true: coffee does raise alertness, but the study behind the claim had only 12 people and was funded by a coffee brand."
+    },
+    {
+      "id": "summarize-research",
+      "title": "Summarize a Research Paper",
+      "category": "analysis",
+      "purpose": "Get the point of a research paper without wading through the jargon.",
+      "prompt": "Summarize this research paper for a non-expert:\n\n[Paste the abstract, or the whole paper if it's short]\n\nCover: what question the researchers asked, how they tried to answer it, what they found, and what the limits are. Skip the jargon. Tell me in one sentence whether the result actually matters outside the lab.",
+      "tips": "The abstract is usually enough — full papers are mostly method details you'll never need.",
+      "example": "They asked whether sleep affects memory. They tested 60 students and found 8 hours of sleep improved recall by 20%. Limit: all participants were 18-22."
+    },
+    {
+      "id": "find-flaws",
+      "title": "Find the Weak Spots in This Argument",
+      "category": "analysis",
+      "purpose": "Stress-test an argument fairly — steelman it first, then find the real flaws.",
+      "prompt": "Find the weak spots in this argument:\n\n[Paste the argument]\n\nBe fair — steelman it first (state the strongest version of the argument), then point out: any claims without evidence, any logical jumps, and any facts that contradict it. For each flaw, say how serious it is and what would fix it.",
+      "tips": "Steelmanning first keeps the critique honest — it's easy to knock down a weak version of someone's point.",
+      "example": "Strongest version: ... Flaw 1 (serious): the argument assumes prices will stay flat, but they rose 15% last year."
+    },
+    {
+      "id": "validate-idea",
+      "title": "Stress-Test My Business Idea",
+      "category": "business",
+      "purpose": "Find out if a business idea can actually work before spending money on it.",
+      "prompt": "Stress-test this business idea for me:\n\nIdea: [describe it in 2-3 sentences]\nTarget customer: [who]\nPrice: [how much]\n\nBe honest: 1) who exactly would pay for this, and why, 2) the 3 biggest reasons it could fail, 3) the cheapest way to test it this week, 4) one similar business I should look at. Don't encourage me — tell me what I'd need to believe for this to work.",
+      "tips": "If you can't name a specific person who would pay, the idea isn't ready yet.",
+      "example": "Biggest risk: you're competing with free tools. Cheapest test: a one-page site and 20 cold messages to real shop owners this week."
+    },
+    {
+      "id": "marketing-copy",
+      "title": "Write Copy That Sells Without Shouting",
+      "category": "business",
+      "purpose": "Write a headline and benefit lines that speak to the customer, not the product.",
+      "prompt": "Write marketing copy for [product/service]. It helps [target customer] to [main benefit]. Price: [price].\n\nGive me: a headline (under 10 words), 3 benefit lines that say what the customer gets (not what the product is), and a call to action. Tone: confident, not pushy. No exclamation marks, no 'amazing' or 'revolutionary'.",
+      "tips": "Lead with the customer's problem, not your product's features — nobody buys features.",
+      "example": "Headline: 'WiFi that just works, even in a big house.' Benefit: 'No dead zones in the back rooms.'"
+    },
+    {
+      "id": "social-post-ideas",
+      "title": "A Week of Social Media Posts",
+      "category": "business",
+      "purpose": "Get 7 ready post ideas for the week, mixed across formats that actually get read.",
+      "prompt": "Give me 7 social media post ideas for [business/topic] for this week. My audience is [who] and I post on [platform].\n\nMix the formats: 2 useful tips, 2 behind-the-scenes, 1 customer story, 1 question to the audience, 1 offer. For each idea, give me the hook (first line) and 2-3 sentences of content. Keep each post short enough to read in 20 seconds.",
+      "tips": "One idea per post — posts that try to say three things get scrolled past.",
+      "example": "Day 1 (tip): 'Your WiFi is slow in the bedroom for one reason...' Day 3 (behind the scenes): how we install a router in 30 minutes."
+    },
+    {
+      "id": "pricing-help",
+      "title": "Help Me Price My Product",
+      "category": "business",
+      "purpose": "Set a price that covers your costs, fits the market, and holds up when customers push back.",
+      "prompt": "Help me set a price for [product/service]. It costs me [cost] to deliver, competitors charge [range], and my customers are [who].\n\nGive me: a recommended price and why, a lower 'starter' option and a higher 'premium' option, and what to say when a customer says it's too expensive. If my costs mean the price won't work, say so and show the math.",
+      "tips": "Price on the value to the customer, not just your costs — but never below your costs.",
+      "example": "Recommended: 249,000/month. Your cost is 120,000, competitors are at 300,000 — you can win on price and still keep a healthy margin."
+    },
+    {
+      "id": "customer-persona",
+      "title": "Build a Customer Persona",
+      "category": "business",
+      "purpose": "Turn what you know about your customers into a persona you can actually use.",
+      "prompt": "Build a customer persona for [product/service]. Here's what I know about my customers so far:\n\n[What you know — even if it's just 2-3 sentences]\n\nGive me: a name and age, what a normal day looks like for them, their biggest frustration related to my product, what they'd Google when looking for a solution, and what would make them choose me over a competitor. Mark anything you're guessing with [guess] so I know what to verify.",
+      "tips": "Base it on real customers you've talked to — a persona built only on guesses will mislead you.",
+      "example": "Rina, 34, runs a small bakery in Bandung. Frustration: her WiFi drops every afternoon when orders come in. [guess] She compares prices on Instagram first."
+    },
+    {
+      "id": "portrait-prompt",
+      "title": "A Realistic Portrait Prompt",
+      "category": "image",
+      "purpose": "Write an image prompt that produces a portrait that looks like a real photo.",
+      "prompt": "Write an image generation prompt for a realistic portrait photo of [describe the person]. Setting: [where]. Light: [natural window light / golden hour / studio].\n\nMake it specific: camera (85mm lens, shallow depth of field), expression, clothing, background. Add what to avoid: no plastic skin, no extra fingers, no weird eyes. Keep the whole prompt under 80 words.",
+      "tips": "Name the lens and light — '85mm, soft window light' changes a portrait more than any adjective.",
+      "example": "A candid portrait of a 30-year-old woman laughing, sitting by a cafe window, soft morning light on her face, 85mm lens, shallow depth of field, warm tones, natural skin texture."
+    },
+    {
+      "id": "product-shot",
+      "title": "A Product Photo That Looks Expensive",
+      "category": "image",
+      "purpose": "Write a product photo prompt with clean light, one surface, and no clutter.",
+      "prompt": "Write an image generation prompt for a product photo of [product]. Background: [clean white / lifestyle scene].\n\nDescribe: the product's position, the lighting (soft studio light, one shadow), the surface it's on, and the mood. Add: photorealistic, high detail, no text, no logos, no extra objects. Under 60 words.",
+      "tips": "One product, one surface, one light direction — cluttered product shots look cheap.",
+      "example": "A matte black wireless router on a light wooden table, soft studio light from the left, gentle shadow, minimal background, photorealistic, sharp detail."
+    },
+    {
+      "id": "logo-concept",
+      "title": "Logo Concepts to Show a Designer",
+      "category": "image",
+      "purpose": "Get logo ideas with shapes and colors you can hand to a designer as a brief.",
+      "prompt": "Give me 5 logo concepts for a business called [name] that does [what it does]. Audience: [who]. Style: [modern / playful / premium].\n\nFor each concept: one sentence describing the idea, the main shape or symbol, and 2 colors with hex codes. Then tell me which one you'd pick and why. These are ideas to brief a designer, not final logos.",
+      "tips": "A logo brief works when it says what the business does in one line — designers can't read your mind.",
+      "example": "Concept 1: a signal wave forming a house roof — teal #0D9488 + dark navy #0F172A."
+    },
+    {
+      "id": "illustration-style",
+      "title": "An Illustration in a Specific Style",
+      "category": "image",
+      "purpose": "Write an illustration prompt with a real palette and a clear feeling.",
+      "prompt": "Write an image generation prompt for an illustration of [subject] in the style of [style, e.g. flat vector, watercolor, retro poster].\n\nDescribe: the main elements, the color palette (3 colors), the composition, and the feeling it should give. Add: clean lines, no text, no watermark. Under 70 words.",
+      "tips": "Name 3 colors exactly — 'blue and orange' is vague, '#2563EB, #F97316, #F8FAFC' is a palette.",
+      "example": "Flat vector illustration of a person working from a rooftop garden at sunset, teal, orange and cream palette, simple shapes, calm mood, no text."
+    },
+    {
+      "id": "thumbnail-prompt",
+      "title": "A Thumbnail People Actually Click",
+      "category": "image",
+      "purpose": "Write a thumbnail prompt with one face, one object, and room for text.",
+      "prompt": "Write an image generation prompt for a YouTube thumbnail about [video topic]. The video is for [audience].\n\nDescribe: one clear focal image, a face showing [emotion], bold contrast, and space on the left for text. Style: bright, high contrast, 16:9. No text in the image itself — I'll add that later. Under 60 words.",
+      "tips": "One face, one object, one emotion — thumbnails with three ideas get ignored.",
+      "example": "Close-up of a surprised man holding a router, bright yellow background, strong contrast, left third empty for text, 16:9."
+    },
+    {
+      "id": "spreadsheet-formula",
+      "title": "Get the Right Spreadsheet Formula",
+      "category": "data",
+      "purpose": "Get a formula you can paste, with each part explained and the common mistake flagged.",
+      "prompt": "I need a spreadsheet formula for this:\n\nWhat I have: [describe your columns and data]\nWhat I want: [the result]\nI'm using [Google Sheets / Excel].\n\nGive me the exact formula I can paste, explain each part in one line, and tell me the common mistake to avoid with it.",
+      "tips": "Paste 3-4 rows of sample data — a formula written blind usually needs two more rounds.",
+      "example": "=SUMIFS(C:C, A:A, \"Bandung\", B:B, \">=100000\") — this sums column C where column A is Bandung and column B is at least 100,000."
+    },
+    {
+      "id": "analyze-data",
+      "title": "Analyze This Data and Tell Me What Matters",
+      "category": "data",
+      "purpose": "Turn a pile of numbers into the patterns, the oddity, and the next step.",
+      "prompt": "Analyze this data and tell me what actually matters:\n\n[Paste the data or describe it]\n\nGive me: 1) the 3 most important patterns, 2) one thing that looks odd or wrong, 3) what I should do next based on the numbers. Don't just describe the data — interpret it. If the data is too small to trust a conclusion, say so.",
+      "tips": "Say what decision the analysis is for — 'what matters' depends on what you're deciding.",
+      "example": "Pattern 1: sales double on weekends but your ad spend is flat all week — you're under-spending when demand is highest."
+    },
+    {
+      "id": "chart-choice",
+      "title": "Which Chart Should I Use?",
+      "category": "data",
+      "purpose": "Pick the chart that makes your point obvious in 3 seconds — and avoid the wrong one.",
+      "prompt": "I want to show this data in a chart:\n\n[Describe the data and what you want people to see]\n\nTell me: the best chart type and why, the second-best option, and one chart type I should NOT use here. Then tell me what to put on each axis and what title to use.",
+      "tips": "A chart should make one point obvious in 3 seconds — if it needs a paragraph to explain, pick a simpler chart.",
+      "example": "Use a bar chart: months on the x-axis, sales on the y-axis. Don't use a pie chart — 12 slices are unreadable."
+    },
+    {
+      "id": "clean-data",
+      "title": "Clean Up This Messy Data",
+      "category": "data",
+      "purpose": "Get a safe step-by-step plan to fix duplicates, wrong formats, and missing values.",
+      "prompt": "Help me clean this data:\n\n[Paste a sample or describe the problems — duplicates, wrong formats, missing values]\n\nGive me a step-by-step plan: what to fix first, the exact steps or formulas for each fix, and how to check the result. Keep the original data safe — tell me how to work on a copy.",
+      "tips": "Always work on a copy — cleaning is the step where data gets lost.",
+      "example": "Step 1: duplicate the sheet. Step 2: use Data > Remove duplicates on the email column. Step 3: check the row count before and after."
+    },
+    {
+      "id": "sql-query",
+      "title": "Write a SQL Query for Me",
+      "category": "data",
+      "purpose": "Get a working query with a plain explanation and a tip for large tables.",
+      "prompt": "Write a SQL query for this:\n\nTables: [table names and key columns]\nI need: [what you want to get]\nDatabase: [MySQL / Postgres / SQLite].\n\nGive me the query, explain each part briefly, and add one tip for making it faster if the table is large. If my request is ambiguous, ask me one question instead of guessing.",
+      "tips": "List the exact column names — guessing column names is how queries fail silently.",
+      "example": "SELECT name, price FROM products WHERE stock > 0 ORDER BY price DESC LIMIT 10; — this gets the 10 most expensive products that are in stock."
+    },
+    {
+      "id": "plan-my-day",
+      "title": "Plan My Day in 10 Minutes",
+      "category": "productivity",
+      "purpose": "Turn a must-do list and real free hours into a schedule that fits.",
+      "prompt": "Plan my day for me. Today is [day/date]. I must do: [list the must-dos]. I have [hours] free. I also want to fit in [one personal thing].\n\nGive me a simple schedule with times, in order. Put the hardest task first, add two short breaks, and leave 30 minutes of buffer. If everything doesn't fit, tell me what to move to tomorrow.",
+      "tips": "List your real must-dos, not your wish list — a plan that pretends you have 12 free hours won't survive contact with reality.",
+      "example": "08:00-09:30: finish the report (hardest first). 09:30-09:45: break. 10:00: call the supplier..."
+    },
+    {
+      "id": "break-down-task",
+      "title": "Break This Big Task Into Small Steps",
+      "category": "productivity",
+      "purpose": "Split a big, stuck task into 30-minute steps with a first step you can do in 5 minutes.",
+      "prompt": "Break this task into small steps I can actually start:\n\nTask: [describe it]\nDeadline: [when]\nI have about [hours per day] to work on it.\n\nGive me steps that each take 30-60 minutes, in order, with the first step so small I could do it in 5 minutes. Mark the step where I should check my progress. End with: what's the one thing that would make this fail, and how do I avoid it?",
+      "tips": "If a step still feels big, it's not a step — break it again until it feels easy to start.",
+      "example": "Step 1 (5 min): open a blank doc and write the title. Step 2: list the 5 sections. Step 3: write section 1..."
+    },
+    {
+      "id": "prioritize-tasks",
+      "title": "Help Me Prioritize When Everything Feels Urgent",
+      "category": "productivity",
+      "purpose": "Sort a messy task list into do today, do this week, and drop — without mercy.",
+      "prompt": "Help me prioritize. Here's my list:\n\n[Paste your task list]\n\nFor each task, ask: is it urgent, is it important, and what happens if I don't do it this week? Then sort them into: do today, do this week, delegate or drop. Be ruthless — if something can be dropped, say so and explain why it doesn't matter as much as I think.",
+      "tips": "Add the deadline and the consequence for each task — without those, everything looks equally urgent.",
+      "example": "Do today: reply to the client (deadline tomorrow, blocks payment). Drop: redesign the footer (no one asked for it, no deadline)."
+    },
+    {
+      "id": "meeting-notes",
+      "title": "Turn Messy Notes Into a Clean Summary",
+      "category": "productivity",
+      "purpose": "Turn raw meeting notes into decisions, action items, and open questions.",
+      "prompt": "Turn these meeting notes into a clean summary:\n\n[Paste your raw notes]\n\nGive me: 1) decisions made, 2) action items with owner and deadline (mark anything unclear with [?]), 3) open questions. Keep it under 200 words. Use the names people actually use, not formal titles.",
+      "tips": "Paste the notes right after the meeting — a day later, half the context is gone from your memory.",
+      "example": "Decisions: we launch on Monday with the current design. Actions: Rina — send the price list by Friday..."
+    },
+    {
+      "id": "habit-plan",
+      "title": "Build a Habit I Won't Quit in a Week",
+      "category": "productivity",
+      "purpose": "Build a habit starting so small you can't fail, with a plan for the day you miss.",
+      "prompt": "Help me build the habit of [habit]. Right now I [current situation]. I can spend [minutes] a day on it.\n\nGive me: a version so small I can't fail at it, when and where I'll do it (tie it to something I already do), how to track it simply, and what to do on the day I miss — because I will miss a day. No motivational speeches, just the plan.",
+      "tips": "Start embarrassingly small — 2 minutes a day beats a 1-hour plan you quit on day three.",
+      "example": "Tiny version: read one page after breakfast. Track: mark an X on the calendar. Missed a day? Just do the tiny version tomorrow, never double up."
+    },
+    {
+      "id": "resume-bullet",
+      "title": "Turn My Work Into Strong Resume Bullets",
+      "category": "career",
+      "purpose": "Turn plain job experience into resume bullets with strong verbs and real numbers.",
+      "prompt": "Turn this experience into strong resume bullet points:\n\nRole: [job title]\nWhat I did: [2-3 sentences]\nResults (if any): [numbers or outcomes]\n\nGive me 3-4 bullets. Start each with a strong verb, include a number where possible, and cut every filler word. If I gave you no results, ask me one question that would help me find a number.",
+      "tips": "Numbers make bullets believable — 'increased sales' is vague, 'increased sales 20% in 3 months' is a result.",
+      "example": "• Cut delivery time 30% by reorganizing the warehouse layout. • Trained 5 new staff in the first month."
+    },
+    {
+      "id": "interview-prep",
+      "title": "Practice Interview Questions With Me",
+      "category": "career",
+      "purpose": "Do a mock interview, one question at a time, with honest feedback after each answer.",
+      "prompt": "Practice a job interview with me. The role is [job title] at [company type]. Ask me one question at a time and wait for my answer. After each answer, tell me: what was strong, what to improve, and a better way to phrase one part. Mix easy questions with one hard one. After 5 questions, give me an overall score out of 10 and the one thing to fix first.",
+      "tips": "Answer out loud, not in your head — interviews are spoken, and your answer will sound different when you say it.",
+      "example": "Q1: Tell me about yourself. ... Strong: you led with your experience. Improve: cut the 2-minute life story — 60 seconds is enough."
+    },
+    {
+      "id": "cover-letter",
+      "title": "Write a Cover Letter That Sounds Like Me",
+      "category": "career",
+      "purpose": "Write a short cover letter that sounds like a real person, not a template.",
+      "prompt": "Write a cover letter for [role] at [company]. Here's my background in 3-4 sentences:\n\n[Your background]\n\nAnd here's why I want this job:\n\n[Your reason]\n\nKeep it under 250 words, 3 short paragraphs. Sound like a real person, not a template — no 'I am writing to express my interest'. Mention one specific thing about the company. End with what I can do for them, not what I want from them.",
+      "tips": "One specific detail about the company beats ten lines of generic praise.",
+      "example": "I saw your team shipped the new checkout in six weeks — that's the kind of pace I work best at, and it's why I want to join."
+    },
+    {
+      "id": "salary-negotiation",
+      "title": "A Script for Asking for a Raise",
+      "category": "career",
+      "purpose": "Prepare a calm script for asking for a raise, with answers to the usual pushbacks.",
+      "prompt": "Help me prepare to ask for a raise. My role: [role]. Current salary: [amount]. Market rate: [amount, if you know it]. What I've delivered: [2-3 results].\n\nGive me: a short script I can say out loud (under 150 words), the 3 strongest points to lead with, and answers to the two most likely pushbacks ('we don't have budget', 'let me think about it'). Keep the tone calm and professional.",
+      "tips": "Lead with results, not with how long you've been there — tenure isn't a reason for a raise, impact is.",
+      "example": "Script: 'I want to talk about my compensation. In the last year I...' Pushback: 'We don't have budget' → 'I understand — can we agree on a timeline and what I'd need to deliver for it?'"
+    },
+    {
+      "id": "linkedin-about",
+      "title": "Write a LinkedIn About Section",
+      "category": "career",
+      "purpose": "Write a first-person About section that says what you do in the first line.",
+      "prompt": "Write a LinkedIn About section for me. I do [what you do], for [who], and I'm known for [1-2 strengths]. Here's my background:\n\n[2-3 sentences]\n\nWrite it in first person, under 150 words. First line should say who I help and how. No buzzwords like 'passionate' or 'results-driven'. End with what kind of work or people I want to hear from.",
+      "tips": "The first line is the only part most people read — make it say what you actually do.",
+      "example": "I help small shops in Bandung get online and sell more — websites, WhatsApp ordering, and simple ads that pay for themselves."
+    },
+    {
+      "id": "meal-plan",
+      "title": "A Week of Meals From What's in My Kitchen",
+      "category": "everyday",
+      "purpose": "Plan 7 simple dinners from ingredients you already have, plus a short shopping list.",
+      "prompt": "Plan my meals for the week. I have these ingredients already: [list]. I cook for [number] people. Budget: [amount]. I don't eat [restrictions].\n\nGive me 7 dinners that use what I have first, each under 30 minutes, with a short ingredient list. Then a shopping list of only what I'm missing. Keep the meals simple — real food, not restaurant dishes.",
+      "tips": "List what's actually in your fridge, not what you wish was there — the plan only works with real ingredients.",
+      "example": "Monday: fried rice with egg and the leftover chicken. Shopping list: eggs, spring onions, soy sauce."
+    },
+    {
+      "id": "budget-plan",
+      "title": "A Monthly Budget That Fits Real Life",
+      "category": "everyday",
+      "purpose": "See where your money actually goes and find one realistic cut if the math doesn't add up.",
+      "prompt": "Help me make a monthly budget. My income is [amount]. My fixed costs are: [rent, bills, etc.]. I want to save [amount or %].\n\nShow me: where the money goes (in a simple table), what's left for food and fun, and one realistic cut if the numbers don't add up. Don't lecture me — just show the math and one small change I could try first.",
+      "tips": "Use last month's real spending, not what you think you spend — the gap is usually the whole problem.",
+      "example": "Income: 5,000,000. Rent 1,500,000, food 1,200,000... Left: 300,000. One change: cooking 3 more dinners a week saves about 400,000."
+    },
+    {
+      "id": "gift-ideas",
+      "title": "Gift Ideas for Someone Hard to Shop For",
+      "category": "everyday",
+      "purpose": "Get 5 gift ideas at different prices, each with a real reason it fits the person.",
+      "prompt": "Help me find a gift for [who, e.g. my dad]. He's/she's [age], likes [interests], and already has [things they own]. Budget: [amount].\n\nGive me 5 ideas at different prices, each with one sentence on why it fits them. No generic gift cards unless nothing else works. One idea should be something I can make or do, not buy.",
+      "tips": "The best clue is what they complain about or keep borrowing — gifts that solve a small annoyance get used.",
+      "example": "1) A good thermos (he complains his coffee goes cold on the road). 5) Cook his favorite meal together — costs almost nothing, he'll remember it."
+    },
+    {
+      "id": "travel-plan",
+      "title": "Plan a Short Trip Without the Stress",
+      "category": "everyday",
+      "purpose": "Get a relaxed day-by-day trip plan with costs, not a schedule packed with 6 stops a day.",
+      "prompt": "Plan a [number]-day trip to [place] for [number] people. Budget: [amount] total. We like [interests] and want to avoid [things you dislike].\n\nGive me: a day-by-day plan with 2-3 things per day (with rough times), where to stay (area, not a specific hotel), how to get around, and the total estimated cost. Keep the pace relaxed — no day packed with 6 stops.",
+      "tips": "Say what you actually enjoy — a plan built for 'sightseeing' when you hate museums will be miserable.",
+      "example": "Day 1: arrive, check in near Braga street, evening food walk. Day 2: morning at the tea plantation, afternoon free."
+    },
+    {
+      "id": "reply-message",
+      "title": "Reply to a Difficult Message",
+      "category": "everyday",
+      "purpose": "Write a reply to a hard message that sounds calm, human, and clear — in two lengths.",
+      "prompt": "Help me reply to this message:\n\n[Paste the message]\n\nContext: [who it's from, what happened]. I want to sound [calm / firm / friendly] and I want [what outcome].\n\nGive me a reply under 80 words, and one shorter version (under 30 words) if I want to keep it brief. Don't make it sound like a lawyer or a robot — write like a normal person.",
+      "tips": "Wait before sending a heated reply — write it, do something else for 10 minutes, then read it once more.",
+      "example": "Hi, thanks for letting me know. I understand the delay, but I need this by Friday or I'll have to find another option — can you confirm?"
+    }
+  ]
+}

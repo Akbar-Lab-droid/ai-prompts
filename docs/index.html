@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Prompts — 50 ready-to-use prompts that make AI actually useful</title>
+<meta name="description" content="50 curated, ready-to-use AI prompts in 10 categories: coding, writing, learning, analysis, business, image generation, data, productivity, career, and everyday life. Search, filter, copy.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <h1>AI Prompts</h1>
+    <p class="tagline">50 ready-to-use prompts that make AI actually useful. Pick one, copy it, replace the <code>[bracketed parts]</code> with your details, and paste it into your favorite AI chat.</p>
+    <p class="meta"><span id="count">Loading…</span> · <a href="https://github.com/Akbar-Lab-Droid/ai-prompts">GitHub</a> · <a href="https://github.com/Akbar-Lab-Droid/ai-prompts/blob/main/PROMPTING-GUIDE.md">How to write a good prompt</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search prompts… (e.g. debug, resume, budget)" aria-label="Search prompts">
+    <div id="filters" class="filters" role="group" aria-label="Filter by category"></div>
+  </div>
+
+  <p id="empty" class="empty" hidden>No prompts match. Try a different word or category.</p>
+  <div id="cards" class="cards"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Free to use — MIT license. Built by <a href="https://github.com/Akbar-Lab-Droid">Akbar Ramadhan</a>.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
