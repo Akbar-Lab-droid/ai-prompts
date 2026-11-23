@@ -34,7 +34,15 @@ function filtered() {
   return state.prompts.filter((p) => {
     if (state.category !== "all" && p.category !== state.category) return false;
     if (!q) return true;
-    return (p.title + " " + p.purpose + " " + p.prompt + " " + p.tips).toLowerCase().includes(q);
+    const haystack = [
+      p.title,
+      p.purpose,
+      p.prompt,
+      p.tips,
+      p.example || "",
+      CATEGORY_TITLES[p.category] || p.category,
+    ].join(" ").toLowerCase();
+    return haystack.includes(q);
   });
 }
 
